@@ -5,12 +5,12 @@ class EmergenciesController < ApplicationController
 
   def create
     emergency = Emergency.create(create_params)
-    status = 201
+    status = :created
     res_obj =
     if emergency.errors.blank?
       { message: nil, emergency: emergency }
     else
-      status = 422
+      status = :unprocessable_entity
       { message: emergency.errors.messages }
     end
     render json: res_obj, status: status
