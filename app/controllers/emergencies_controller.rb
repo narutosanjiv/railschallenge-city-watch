@@ -5,13 +5,15 @@ class EmergenciesController < ApplicationController
 
   def create
     emergency = Emergency.create(create_params)
+    status = 201
     res_obj =
     if emergency.errors.blank?
-      { status: 201, message: nil, emergency: emergency }
+      { message: nil, emergency: emergency }
     else
-      { status: 422, message: emergency.errors.messages }
+      status = 422
+      { message: emergency.errors.messages }
     end
-    render json: res_obj
+    render json: res_obj, status: status
   end
 
   private
