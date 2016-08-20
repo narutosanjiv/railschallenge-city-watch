@@ -5,7 +5,7 @@ class ApplicationController < ActionController::Base
 
   def process(action, *args)
     super
-  rescue AbstractController::ActionNotFound
-    render json: { message: "page not found" }, status: :not_found
+  rescue AbstractController::ActionNotFound, ActiveRecord::RecordNotFound
+    render json: { message: 'page not found' }, status: :not_found
   end
 end
