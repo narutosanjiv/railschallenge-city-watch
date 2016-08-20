@@ -7,7 +7,7 @@ class EmergenciesController < ApplicationController
     emergency = Emergency.create(create_params)
     res_obj =
     if emergency.errors.blank?
-      { message: nil, emergency: emergency }
+      { status: 201, message: nil, emergency: emergency }
     else
       { status: 422, message: emergency.errors.messages }
     end
