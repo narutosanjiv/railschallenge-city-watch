@@ -9,6 +9,6 @@ gem 'web-console', group: :development
 group :development, :test do
   gem 'byebug'
   gem 'rubocop', '0.30.0'
-  gem 'minitest-rails', '~> 2.1.1'
+  gem 'minitest-rails', '~> 8.0.0'
   gem 'database_cleaner', '1.4.1'
 end
